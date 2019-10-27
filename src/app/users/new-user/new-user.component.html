@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">New user</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="userForm" #userFormRef="ngForm" (ngSubmit)="createUser()">
+    <div class="form-group">
+      <label for="name">User Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" placeholder="User Name" required>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <p *ngIf="name.errors.required" class="form-text form-muted error-title">Please Enter the Name</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email" required>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <p *ngIf="email.errors.required" class="form-text form-muted error-title">Please Enter the Email</p>
+            <p *ngIf="email.errors.email" class="form-text form-muted error-title">Incorrect Email Format</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="city">City (Optional)</label>
+        <input type="text" id="city" class="form-control" formControlName="city" placeholder="City">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary" (click)="modal.close('Close click')">Cancel</button>
+  <button class="btn btn-primary" (click)="userFormRef.ngSubmit.emit()">Save</button>
+</div>
