@@ -5,3 +5,23 @@ input.ng-invalid.ng-touched, input.ng-invalid.ng-dirty {
 p.error-title {
   color: red;
 }
+
+div.modal-footer.edit-user {
+  div.delete-user {
+    p {
+      margin: 0;
+      color: red;
+      cursor: pointer;
+    }
+  }
+  div.user-actions {
+    & :not(:first-child) {
+      margin-left: 0.25rem;
+    }
+    & :not(:last-child) {
+      margin-right: 0.25rem;
+    }
+  }
+  justify-content: space-between !important;
+}
+

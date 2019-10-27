@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UsersComponent } from './users.component';
-import { CommonModule } from '@angular/common';
 import { NewUserModule } from './new-user/new-user.module';
+import { UsersService } from './users.service';
 
 @NgModule({
-  imports: [CommonModule, NgbModule, ReactiveFormsModule, NewUserModule],
+  imports: [CommonModule, NgbModule, HttpClientModule, ReactiveFormsModule, NewUserModule],
   exports: [UsersComponent],
-  declarations: [UsersComponent]
+  declarations: [UsersComponent],
+  providers: [UsersService]
 })
 export class UsersModule { }
